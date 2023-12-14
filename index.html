@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Calculadora Proj Isometrica</title>
+        <script>
+            function Calc(){
+                let Al = document.getElementById('Altura').value
+                let La = document.getElementById('Largura').value
+                let Pr = document.getElementById('Profundidade').value
+
+                let BaseEsquerdaAlt = La * Math.cos(0.523599)
+                let BaseDireitaAlt = Pr * Math.cos(0.523599)
+                let Altura = BaseEsquerdaAlt + parseFloat(Al) + BaseDireitaAlt
+                document.getElementById('ResAltura').innerText = Altura.toFixed(2)
+
+                let BaseEsquerdaLar = La * Math.sin(0.523599)
+                let BaseDireitaLar = Pr * Math.sin(0.523599)
+                let Largura = BaseEsquerdaLar + BaseDireitaLar
+                document.getElementById('ResLargura').innerText = Largura.toFixed(2)
+            }
+        </script>
+        <style>
+            .flex{
+                display: flex;
+                flex-flow: row wrap;
+                justify-content: space-around;
+                align-items: center;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="flex">
+            <img src="desenho.svg" width="20%">
+            <div>
+                <label>
+                    <p>Altura</p>
+                    <input id="Altura" type="number" min="1" step="1" value="1">mm
+                </label>
+                <label>
+                    <p>Largura</p>
+                    <input id="Largura" type="number" min="1" step="1" value="1">mm
+                </label>
+                <label>
+                    <p>Profundidade</p>
+                    <input id="Profundidade" type="number" min="1" step="1" value="1">mm
+                </label>
+            </div>
+            <button onclick="Calc()">Calcular</button>
+        </div>
+
+        <table border="1">
+            <tr>
+                <th>Altura</th><th>Largura</th>
+            </tr>
+            <tr>
+                <td id="ResAltura"></td><td id="ResLargura"></td>
+            </tr>
+        </table>
+    </body>
+</html>
