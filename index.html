@@ -3,18 +3,20 @@
     <head>
         <title>Calculadora Proj Isometrica</title>
         <script>
+            
             function Calc(){
+                let Radian = 0.523599
                 let Al = document.getElementById('Altura').value
                 let La = document.getElementById('Largura').value
                 let Pr = document.getElementById('Profundidade').value
 
-                let BaseEsquerdaAlt = La * Math.cos(0.523599)
-                let BaseDireitaAlt = Pr * Math.cos(0.523599)
+                let BaseEsquerdaAlt = La * Math.cos(Radian)
+                let BaseDireitaAlt = Pr * Math.cos(Radian)
                 let Altura = BaseEsquerdaAlt + parseFloat(Al) + BaseDireitaAlt
                 document.getElementById('ResAltura').innerText = Altura.toFixed(2)
 
-                let BaseEsquerdaLar = La * Math.sin(0.523599)
-                let BaseDireitaLar = Pr * Math.sin(0.523599)
+                let BaseEsquerdaLar = La * Math.sin(Radian)
+                let BaseDireitaLar = Pr * Math.sin(Radian)
                 let Largura = BaseEsquerdaLar + BaseDireitaLar
                 document.getElementById('ResLargura').innerText = Largura.toFixed(2)
             }
